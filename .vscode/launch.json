@@ -1,0 +1,17 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Run day 1",
+      "type": "codelldb",
+      "request": "launch",
+      "program": "${workspaceFolder}/target/debug/advent-of-code",
+      "args": ["1"],
+      "envFile": "${workspaceFolder}/dev.env",
+      "cwd": "${workspaceFolder}",
+      "preLaunchTask": "Build app",
+      "terminal": "integrated"
+    }
+  ],
+  "compounds": []
+}
