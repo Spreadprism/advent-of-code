@@ -2,11 +2,22 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Run day 1",
+      "name": "Day 1",
       "type": "codelldb",
       "request": "launch",
       "program": "${workspaceFolder}/target/debug/advent-of-code",
-      "args": ["1"],
+      "args": ["1", "false"],
+      "envFile": "${workspaceFolder}/dev.env",
+      "cwd": "${workspaceFolder}",
+      "preLaunchTask": "Build app",
+      "terminal": "integrated"
+    },
+    {
+      "name": "Day 1 (Part 2)",
+      "type": "codelldb",
+      "request": "launch",
+      "program": "${workspaceFolder}/target/debug/advent-of-code",
+      "args": ["1", "true"],
       "envFile": "${workspaceFolder}/dev.env",
       "cwd": "${workspaceFolder}",
       "preLaunchTask": "Build app",
