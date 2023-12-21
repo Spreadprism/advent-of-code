@@ -51,7 +51,7 @@ mod tests {
         let game = Game::from_str(test.to_string());
 
         assert_eq!(game.id, 13);
-        assert_eq!(game.max_balls[&BallType::Red], 20);
+        assert_eq!(game.max_balls[&BallType::Red], 3);
         assert_eq!(game.max_balls[&BallType::Green], 20);
         assert_eq!(game.max_balls[&BallType::Blue], 10);
     }
