@@ -16,6 +16,7 @@ fn main() {
 
     let output = match day_number {
         1 => Some(days::day1::solve(input, do_extra)),
+        2 => Some(days::day2::solve(input, do_extra)),
         _ => None,
     };
 
