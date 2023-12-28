@@ -1,7 +1,9 @@
 use std::collections::HashMap;
 
-pub fn solve(input: Vec<String>, with_letters: bool) -> i32 {
+pub fn solve(input: Vec<String>, args: Vec<String>) -> i32 {
     let mut sum: i32 = 0;
+
+    let with_letters = !args.is_empty() && args[0] == "true";
 
     for line in input {
         let (first_char, last_char) = get_char_numbers(line.clone(), with_letters);
@@ -82,7 +84,7 @@ mod tests {
             "a1b2c3d4e5f".to_string(),
             "treb7uchet".to_string(),
         ];
-        assert_eq!(solve(input, false), 142);
+        assert_eq!(solve(input, vec!["false".to_string()]), 142);
     }
 
     #[test]
@@ -96,7 +98,7 @@ mod tests {
             "zoneight234".to_string(),
             "7pqrstsixteen".to_string(),
         ];
-        assert_eq!(solve(input, true), 281);
+        assert_eq!(solve(input, vec!["true".to_string()]), 281);
     }
 
     #[test]

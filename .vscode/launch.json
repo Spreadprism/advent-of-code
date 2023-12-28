@@ -22,6 +22,28 @@
       "cwd": "${workspaceFolder}",
       "preLaunchTask": "Build app",
       "terminal": "integrated"
+    },
+    {
+      "name": "Day 2",
+      "type": "codelldb",
+      "request": "launch",
+      "program": "${workspaceFolder}/target/debug/${workspaceFolderBasename}",
+      "args": ["2", "false", "12", "13", "14"],
+      "envFile": "${workspaceFolder}/dev.env",
+      "cwd": "${workspaceFolder}",
+      "preLaunchTask": "Build app",
+      "terminal": "integrated"
+    },
+    {
+      "name": "Day 2 (Part 2)",
+      "type": "codelldb",
+      "request": "launch",
+      "program": "${workspaceFolder}/target/debug/${workspaceFolderBasename}",
+      "args": ["2", "true"],
+      "envFile": "${workspaceFolder}/dev.env",
+      "cwd": "${workspaceFolder}",
+      "preLaunchTask": "Build app",
+      "terminal": "integrated"
     }
   ],
   "compounds": []

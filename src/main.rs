@@ -5,18 +5,18 @@ fn main() {
     let args: Vec<String> = std::env::args().collect();
 
     let day_number_str = &args[1];
-    let day_extra = &args[2];
-
+    // remove the leading arg
+    //
     println!("Running advent-of-code day {}", day_number_str);
 
     let day_number: i32 = day_number_str.parse().unwrap();
-    let do_extra: bool = day_extra.parse().unwrap();
 
     let input = utilities::read_files(day_number);
+    let solve_args = args[2..].to_vec();
 
     let output = match day_number {
-        1 => Some(days::day1::solve(input, do_extra)),
-        2 => Some(days::day2::solve(input, do_extra)),
+        1 => Some(days::day1::solve(input, solve_args)),
+        2 => Some(days::day2::solve(input, solve_args)),
         _ => None,
     };
 
