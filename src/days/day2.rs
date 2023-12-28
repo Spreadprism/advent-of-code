@@ -69,12 +69,12 @@ pub fn solve(input: Vec<String>, args: Vec<String>) -> i32 {
         .collect::<Vec<String>>();
 
     match args[0].as_str() == "true" {
-        true => solve_day_2(filtered_input),
-        false => solve_day_1(filtered_input, args[1..].to_vec()),
+        true => solve_extra(filtered_input),
+        false => solve_simple(filtered_input, args[1..].to_vec()),
     }
 }
 
-fn solve_day_1(input: Vec<String>, args: Vec<String>) -> i32 {
+fn solve_simple(input: Vec<String>, args: Vec<String>) -> i32 {
     let games = load_games(input);
 
     let red_cubes = args[0].parse::<i32>().unwrap();
@@ -106,7 +106,7 @@ fn solve_day_1(input: Vec<String>, args: Vec<String>) -> i32 {
     total
 }
 
-fn solve_day_2(input: Vec<String>) -> i32 {
+fn solve_extra(input: Vec<String>) -> i32 {
     let games = load_games(input);
     games.into_iter().map(|game| game.power_cubes()).sum()
 }
@@ -138,7 +138,7 @@ mod tests {
     }
 
     #[test]
-    fn test_part_1() {
+    fn test_simple() {
         let test = vec![
             "Game 1: 3 blue, 4 red; 1 red, 2 green, 6 blue; 2 green".to_string(),
             "Game 2: 1 blue, 2 green; 3 green, 4 blue, 1 red; 1 green, 1 blue".to_string(),
@@ -149,9 +149,29 @@ mod tests {
 
         let answer = solve(
             test,
-            vec!["12".to_string(), "13".to_string(), "14".to_string()],
+            vec![
+                "false".to_string(),
+                "12".to_string(),
+                "13".to_string(),
+                "14".to_string(),
+            ],
         );
 
         assert_eq!(answer, 8);
+    }
+
+    #[test]
+    fn test_extra() {
+        let test = vec![
+            "Game 1: 3 blue, 4 red; 1 red, 2 green, 6 blue; 2 green".to_string(),
+            "Game 2: 1 blue, 2 green; 3 green, 4 blue, 1 red; 1 green, 1 blue".to_string(),
+            "Game 3: 8 green, 6 blue, 20 red; 5 blue, 4 red, 13 green; 5 green, 1 red".to_string(),
+            "Game 4: 1 green, 3 red, 6 blue; 3 green, 6 red; 3 green, 15 blue, 14 red".to_string(),
+            "Game 5: 6 red, 1 blue, 3 green; 2 blue, 1 red, 2 green".to_string(),
+        ];
+
+        let answer = solve(test, vec!["true".to_string()]);
+
+        assert_eq!(answer, 2286);
     }
 }
